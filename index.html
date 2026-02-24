@@ -1,102 +1,1034 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coreo - Legal Documents</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: #F5F0E8;
-            color: #3D3D3D;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 600px;
-            background: white;
-            padding: 60px 40px;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            text-align: center;
-        }
-        
-        h1 {
-            color: #1E4D3B;
-            font-size: 36px;
-            margin-bottom: 12px;
-        }
-        
-        .tagline {
-            color: #E8913A;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 40px;
-        }
-        
-        .links {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            margin-top: 32px;
-        }
-        
-        a {
-            display: block;
-            padding: 16px 24px;
-            background-color: #1E4D3B;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-size: 18px;
-            font-weight: 600;
-            transition: background-color 0.2s;
-        }
-        
-        a:hover {
-            background-color: #2a6950;
-        }
-        
-        .footer {
-            margin-top: 40px;
-            font-size: 14px;
-            color: #3D3D3D;
-        }
-        
-        @media (max-width: 768px) {
-            .container {
-                padding: 40px 24px;
-            }
-            
-            h1 {
-                font-size: 28px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coreo – Strength from the inside out</title>
+  <meta name="description" content="Build a stronger core and a more consistent life. Coreo is the iOS plank training app focused on wellness and longevity – not aesthetics." />
+  <meta property="og:title" content="Coreo – Strength from the inside out" />
+  <meta property="og:description" content="Build a stronger core and a more consistent life. Coming soon to the App Store." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── TOKENS ─────────────────────────────────────── */
+    :root {
+      --green:    #1E4D3B;
+      --green-2:  #2a6950;
+      --amber:    #E8913A;
+      --lime:     #A8C26E;
+      --cream:    #F5F0E8;
+      --charcoal: #3D3D3D;
+      --white:    #FFFFFF;
+      --shadow:   rgba(30,77,59,0.10);
+    }
+
+    /* ─── RESET ──────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── TYPOGRAPHY ─────────────────────────────────── */
+    .display {
+      font-family: 'Fraunces', serif;
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+    .display-italic {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.1;
+    }
+
+    /* ─── LAYOUT UTILS ───────────────────────────────── */
+    .wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    .wrap--narrow { max-width: 760px; }
+
+    /* ─── NAV ────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(245,240,232,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(30,77,59,0.08);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-logo svg { width: 32px; height: 32px; }
+    .nav-wordmark {
+      font-family: 'Fraunces', serif;
+      font-weight: 600;
+      font-size: 20px;
+      color: var(--green);
+      letter-spacing: 0.04em;
+    }
+    .nav-pill {
+      background: var(--green);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 100px;
+      letter-spacing: 0.03em;
+    }
+
+    /* ─── HERO ───────────────────────────────────────── */
+    .hero {
+      min-height: 88vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      padding: 80px 0 80px;
+    }
+    .hero-text { position: relative; z-index: 2; }
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 24px;
+    }
+    .hero-kicker::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--amber);
+    }
+    .hero-headline {
+      font-size: clamp(44px, 5.5vw, 76px);
+      color: var(--green);
+      margin-bottom: 28px;
+    }
+    .hero-headline em {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--amber);
+    }
+    .hero-sub {
+      font-size: 18px;
+      line-height: 1.65;
+      color: var(--charcoal);
+      opacity: 0.85;
+      max-width: 440px;
+      margin-bottom: 44px;
+    }
+    .notify-form {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .notify-form input {
+      flex: 1;
+      min-width: 200px;
+      padding: 14px 20px;
+      border: 1.5px solid rgba(30,77,59,0.25);
+      border-radius: 10px;
+      background: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      color: var(--charcoal);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .notify-form input:focus { border-color: var(--green); }
+    .notify-form input::placeholder { color: rgba(61,61,61,0.4); }
+    .btn-primary {
+      padding: 14px 28px;
+      background: var(--green);
+      color: var(--white);
+      border: none;
+      border-radius: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .btn-primary:hover { background: var(--green-2); transform: translateY(-1px); }
+    .hero-note {
+      margin-top: 16px;
+      font-size: 13px;
+      color: rgba(61,61,61,0.5);
+    }
+
+    /* hero visual */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hex-bg {
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      opacity: 0.06;
+    }
+    .hex-ring {
+      animation: spin-slow 40s linear infinite;
+    }
+    @keyframes spin-slow { to { transform: rotate(360deg); } }
+
+    .phone-mock {
+      position: relative;
+      z-index: 2;
+      width: 260px;
+      background: var(--white);
+      border-radius: 36px;
+      box-shadow: 0 32px 80px rgba(30,77,59,0.18), 0 8px 24px rgba(30,77,59,0.08);
+      overflow: hidden;
+      border: 1.5px solid rgba(30,77,59,0.08);
+    }
+    .phone-screen {
+      background: var(--cream);
+      padding: 32px 20px 28px;
+    }
+    .phone-status {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 28px;
+      opacity: 0.4;
+      font-size: 11px;
+    }
+    .phone-greeting {
+      font-size: 13px;
+      color: rgba(61,61,61,0.6);
+      margin-bottom: 4px;
+    }
+    .phone-streak {
+      font-family: 'Fraunces', serif;
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 2px;
+    }
+    .phone-streak span {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--charcoal);
+      opacity: 0.6;
+    }
+    .phone-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .phone-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 12px;
+    }
+    .phone-card-label {
+      font-size: 10px;
+      opacity: 0.5;
+      margin-bottom: 4px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .phone-card-val {
+      font-family: 'Fraunces', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--green);
+    }
+    .phone-card-val.amber { color: var(--amber); }
+    .phone-cta {
+      background: var(--green);
+      color: var(--white);
+      text-align: center;
+      border-radius: 14px;
+      padding: 16px;
+      font-weight: 500;
+      font-size: 15px;
+      cursor: pointer;
+    }
+    .phone-cta small {
+      display: block;
+      font-size: 11px;
+      opacity: 0.6;
+      margin-top: 2px;
+    }
+    .phone-timer {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 16px;
+    }
+    .phone-timer svg {
+      width: 100px;
+      height: 100px;
+      transform: rotate(-90deg);
+    }
+    .phone-timer-num {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .phone-timer-num strong {
+      font-family: 'Fraunces', serif;
+      font-size: 26px;
+      color: var(--green);
+      line-height: 1;
+    }
+    .phone-timer-num span {
+      font-size: 10px;
+      opacity: 0.5;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .phone-msg {
+      font-size: 11px;
+      text-align: center;
+      color: var(--green);
+      opacity: 0.75;
+      font-style: italic;
+      font-family: 'Fraunces', serif;
+    }
+
+    /* decorative hexagons */
+    .hex-deco {
+      position: absolute;
+      opacity: 0.12;
+    }
+    .hex-deco-1 { top: -20px; right: -40px; transform: rotate(15deg); }
+    .hex-deco-2 { bottom: 20px; left: -50px; transform: rotate(-10deg); }
+
+    /* ─── PHILOSOPHY ─────────────────────────────────── */
+    .philosophy {
+      background: var(--green);
+      color: var(--white);
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .philosophy::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpolygon points='30,0 52.5,15 52.5,45 30,60 7.5,45 7.5,15'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .philosophy-inner {
+      position: relative;
+      z-index: 1;
+    }
+    .section-kicker {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--lime);
+      margin-bottom: 20px;
+    }
+    .philosophy-headline {
+      font-size: clamp(36px, 4.5vw, 58px);
+      color: var(--white);
+      margin-bottom: 32px;
+      max-width: 680px;
+    }
+    .philosophy-body {
+      font-size: 18px;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.72);
+      max-width: 580px;
+      margin-bottom: 48px;
+    }
+    .philosophy-stats {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .phil-stat-num {
+      font-family: 'Fraunces', serif;
+      font-size: 48px;
+      color: var(--amber);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .phil-stat-label {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── FEATURES ───────────────────────────────────── */
+    .features {
+      padding: 100px 0;
+    }
+    .section-header {
+      margin-bottom: 64px;
+    }
+    .section-headline {
+      font-size: clamp(32px, 4vw, 52px);
+      color: var(--green);
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 17px;
+      color: rgba(61,61,61,0.65);
+      max-width: 500px;
+      line-height: 1.65;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .feature-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 36px 32px;
+      border: 1px solid rgba(30,77,59,0.07);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 48px var(--shadow);
+    }
+    .feature-card::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      width: 80px;
+      height: 80px;
+      background: var(--cream);
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      opacity: 0.6;
+    }
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--cream);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      font-size: 22px;
+    }
+    .feature-title {
+      font-family: 'Fraunces', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+    .feature-desc {
+      font-size: 15px;
+      line-height: 1.65;
+      color: rgba(61,61,61,0.7);
+    }
+    .feature-card.accent {
+      background: var(--green);
+      border-color: transparent;
+    }
+    .feature-card.accent .feature-icon {
+      background: rgba(255,255,255,0.1);
+    }
+    .feature-card.accent .feature-title { color: var(--white); }
+    .feature-card.accent .feature-desc { color: rgba(255,255,255,0.65); }
+    .feature-card.accent::after { background: rgba(255,255,255,0.05); }
+
+    /* ─── HOW IT WORKS ───────────────────────────────── */
+    .how {
+      background: var(--white);
+      padding: 100px 0;
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin-top: 64px;
+    }
+    .step {
+      position: relative;
+    }
+    .step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 28px;
+      right: -20px;
+      width: 40px;
+      height: 2px;
+      background: var(--lime);
+      opacity: 0.4;
+    }
+    .step-num {
+      font-family: 'Fraunces', serif;
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .step-num::after {
+      content: attr(data-n);
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--amber);
+      font-size: 20px;
+    }
+    .step-title {
+      font-family: 'Fraunces', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+    .step-desc {
+      font-size: 15px;
+      line-height: 1.65;
+      color: rgba(61,61,61,0.65);
+    }
+
+    /* ─── MANIFESTO QUOTE ────────────────────────────── */
+    .quote-section {
+      padding: 100px 0;
+      text-align: center;
+    }
+    .quote-text {
+      font-size: clamp(28px, 4vw, 52px);
+      color: var(--green);
+      max-width: 800px;
+      margin: 0 auto 24px;
+    }
+    .quote-attr {
+      font-size: 14px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--amber);
+    }
+
+    /* ─── CTA ────────────────────────────────────────── */
+    .cta-section {
+      background: var(--cream);
+      padding: 100px 0;
+      text-align: center;
+      border-top: 1px solid rgba(30,77,59,0.08);
+    }
+    .cta-headline {
+      font-size: clamp(36px, 5vw, 64px);
+      color: var(--green);
+      margin-bottom: 20px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-sub {
+      font-size: 18px;
+      color: rgba(61,61,61,0.65);
+      max-width: 480px;
+      margin: 0 auto 44px;
+      line-height: 1.65;
+    }
+    .cta-form {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .cta-form input {
+      flex: 1;
+      min-width: 220px;
+      padding: 16px 22px;
+      border: 1.5px solid rgba(30,77,59,0.2);
+      border-radius: 12px;
+      background: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .cta-form input:focus { border-color: var(--green); }
+    .btn-cta {
+      padding: 16px 32px;
+      background: var(--amber);
+      color: var(--white);
+      border: none;
+      border-radius: 12px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .btn-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+    .cta-note {
+      margin-top: 16px;
+      font-size: 13px;
+      color: rgba(61,61,61,0.45);
+    }
+    .store-badges {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      margin-top: 32px;
+      opacity: 0.35;
+      pointer-events: none;
+    }
+    .store-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border: 1.5px solid var(--green);
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--green);
+    }
+    .coming-soon-tag {
+      display: inline-block;
+      font-size: 11px;
+      background: var(--lime);
+      color: var(--white);
+      padding: 3px 10px;
+      border-radius: 100px;
+      letter-spacing: 0.05em;
+      margin-top: 12px;
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────── */
+    footer {
+      background: var(--green);
+      color: var(--white);
+      padding: 48px 0;
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-wordmark {
+      font-family: 'Fraunces', serif;
+      font-size: 18px;
+      color: var(--white);
+      letter-spacing: 0.04em;
+    }
+    .footer-tagline {
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+    .footer-links a {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* ─── TOAST ──────────────────────────────────────── */
+    .toast {
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: var(--green);
+      color: var(--white);
+      padding: 14px 28px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 500;
+      opacity: 0;
+      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), opacity 0.35s;
+      pointer-events: none;
+      white-space: nowrap;
+      z-index: 999;
+      box-shadow: 0 8px 32px rgba(30,77,59,0.25);
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ─── ENTER ANIMATIONS ───────────────────────────── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-up:nth-child(2) { transition-delay: 0.1s; }
+    .fade-up:nth-child(3) { transition-delay: 0.2s; }
+    .fade-up:nth-child(4) { transition-delay: 0.3s; }
+
+    /* ─── RESPONSIVE ─────────────────────────────────── */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 60px 0;
+      }
+      .hero-sub { max-width: 100%; margin-left: auto; margin-right: auto; }
+      .notify-form { justify-content: center; }
+      .hero-visual { display: none; }
+      .philosophy-stats { gap: 32px; }
+      .steps { grid-template-columns: 1fr; }
+      .step:not(:last-child)::after { display: none; }
+    }
+    @media (max-width: 600px) {
+      .wrap { padding: 0 20px; }
+      .hero-headline { font-size: 38px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .cta-form { flex-direction: column; }
+      .cta-form input { min-width: 100%; }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Coreo</h1>
-        <p class="tagline">Strength from the inside out</p>
-        <p>Legal Documents</p>
-        
-        <div class="links">
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="terms.html">Terms of Service</a>
+
+  <!-- NAV ────────────────────────────────── -->
+  <nav>
+    <div class="wrap">
+      <div class="nav-inner">
+        <div class="nav-logo">
+          <!-- Hexagon logo SVG -->
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="32,4 58,18 58,46 32,60 6,46 6,18" fill="#1E4D3B" rx="4"/>
+            <circle cx="32" cy="32" r="10" fill="#E8913A"/>
+          </svg>
+          <span class="nav-wordmark">Coreo</span>
         </div>
-        
-        <p class="footer">© 2026 Coreo. All rights reserved.</p>
+        <span class="nav-pill">Coming to the App Store</span>
+      </div>
     </div>
+  </nav>
+
+  <!-- HERO ───────────────────────────────── -->
+  <section>
+    <div class="wrap">
+      <div class="hero">
+        <div class="hero-text">
+          <div class="hero-kicker">Core Fitness for Life</div>
+          <h1 class="hero-headline display">
+            Strength from<br>
+            the <em>inside out.</em>
+          </h1>
+          <p class="hero-sub">
+            Coreo is a plank training app built for adults who want to live well for a long time. No before-and-afters. No guilt trips. Just consistent, honest progress.
+          </p>
+          <form class="notify-form" onsubmit="handleNotify(event)">
+            <input type="email" placeholder="your@email.com" required id="email-hero" />
+            <button type="submit" class="btn-primary">Notify me at launch</button>
+          </form>
+          <p class="hero-note">No spam, ever. One email when the app is live.</p>
+        </div>
+
+        <div class="hero-visual">
+          <!-- Background hex rings -->
+          <svg class="hex-bg hex-ring" viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="210,10 400,110 400,310 210,410 20,310 20,110" fill="none" stroke="#1E4D3B" stroke-width="2"/>
+            <polygon points="210,40 370,130 370,290 210,380 50,290 50,130" fill="none" stroke="#1E4D3B" stroke-width="1.5" opacity="0.5"/>
+            <polygon points="210,70 340,150 340,270 210,350 80,270 80,150" fill="none" stroke="#E8913A" stroke-width="1" opacity="0.4"/>
+          </svg>
+
+          <!-- Phone mock -->
+          <div class="phone-mock">
+            <div class="phone-screen">
+              <div class="phone-status">
+                <span>9:41</span>
+                <span>●●●</span>
+              </div>
+              <p class="phone-greeting">Good morning 👋</p>
+              <div class="phone-streak">17 <span>day streak</span></div>
+
+              <div class="phone-cards">
+                <div class="phone-card">
+                  <div class="phone-card-label">Record</div>
+                  <div class="phone-card-val">3:20</div>
+                </div>
+                <div class="phone-card">
+                  <div class="phone-card-label">This week</div>
+                  <div class="phone-card-val amber">5×</div>
+                </div>
+              </div>
+
+              <!-- timer state -->
+              <div class="phone-timer">
+                <svg viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="44" fill="none" stroke="#F5F0E8" stroke-width="8"/>
+                  <circle cx="50" cy="50" r="44" fill="none" stroke="#1E4D3B" stroke-width="8"
+                    stroke-dasharray="276.46" stroke-dashoffset="92" stroke-linecap="round"/>
+                </svg>
+                <div class="phone-timer-num">
+                  <strong>1:45</strong>
+                  <span>hold</span>
+                </div>
+              </div>
+              <p class="phone-msg">Breathe. You've got this.</p>
+            </div>
+          </div>
+
+          <!-- Decorative hexagons -->
+          <svg class="hex-deco hex-deco-1" width="80" height="80" viewBox="0 0 80 80">
+            <polygon points="40,5 73,22.5 73,57.5 40,75 7,57.5 7,22.5" fill="#E8913A"/>
+          </svg>
+          <svg class="hex-deco hex-deco-2" width="60" height="60" viewBox="0 0 60 60">
+            <polygon points="30,4 56,18 56,42 30,56 4,42 4,18" fill="#A8C26E"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY ─────────────────────────── -->
+  <section class="philosophy">
+    <div class="wrap">
+      <div class="philosophy-inner">
+        <p class="section-kicker">Our Belief</p>
+        <h2 class="philosophy-headline display">
+          The beautiful body is a byproduct,<br>
+          <em class="display-italic">not the objective.</em>
+        </h2>
+        <p class="philosophy-body">
+          We built Coreo for adults who care about being strong, mobile, and pain-free for decades. The core is the foundation of everything you do: run, lift, sit, stand, play. Build it well and the rest follows.
+        </p>
+        <div class="philosophy-stats">
+          <div class="fade-up">
+            <div class="phil-stat-num">30s</div>
+            <div class="phil-stat-label">to start your first workout</div>
+          </div>
+          <div class="fade-up">
+            <div class="phil-stat-num">+5s</div>
+            <div class="phil-stat-label">auto-progression every 3 days</div>
+          </div>
+          <div class="fade-up">
+            <div class="phil-stat-num">0</div>
+            <div class="phil-stat-label">before-and-after comparisons</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES ───────────────────────────── -->
+  <section class="features">
+    <div class="wrap">
+      <div class="section-header">
+        <p class="section-kicker" style="color:var(--amber)">What's inside</p>
+        <h2 class="section-headline display">
+          Every detail designed<br>to build your habit.
+        </h2>
+        <p class="section-sub">
+          No bloat. No noise. Just the right tools to show up consistently, track your progress honestly, and feel the difference.
+        </p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card fade-up">
+          <div class="feature-icon">⏱️</div>
+          <div class="feature-title">Intelligent Timer</div>
+          <p class="feature-desc">Starts exactly where you left off. No friction between you and your workout. Two taps and you're holding.</p>
+        </div>
+        <div class="feature-card accent fade-up">
+          <div class="feature-icon">🔥</div>
+          <div class="feature-title">Honest Streaks</div>
+          <p class="feature-desc">We always ask "Did you really do it?" before logging. Your streak means something because it's real.</p>
+        </div>
+        <div class="feature-card fade-up">
+          <div class="feature-icon">📈</div>
+          <div class="feature-title">Auto-Progression</div>
+          <p class="feature-desc">Hold your duration for 3 days in a row and Coreo quietly adds 5 seconds. Progress that doesn't overwhelm.</p>
+        </div>
+        <div class="feature-card fade-up">
+          <div class="feature-icon">🎯</div>
+          <div class="feature-title">Goal Setting</div>
+          <p class="feature-desc">Set targets like "20 workouts in 4 weeks" and watch the app adapt its status to keep you informed, not anxious.</p>
+        </div>
+        <div class="feature-card fade-up">
+          <div class="feature-icon">📊</div>
+          <div class="feature-title">Visual Analytics</div>
+          <p class="feature-desc">A weekly bar chart and a 12-week consistency calendar that make your progress impossible to ignore.</p>
+        </div>
+        <div class="feature-card fade-up">
+          <div class="feature-icon">🔁</div>
+          <div class="feature-title">Set System</div>
+          <p class="feature-desc">Configure 1–10 series with custom rest intervals. Train like an athlete, recover like one too.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS ───────────────────────── -->
+  <section class="how">
+    <div class="wrap">
+      <div class="section-header">
+        <p class="section-kicker" style="color:var(--lime)">Simple by design</p>
+        <h2 class="section-headline display">Three steps to a stronger foundation.</h2>
+      </div>
+      <div class="steps">
+        <div class="step fade-up">
+          <div class="step-num" data-n="01">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+          <h3 class="step-title">Set your duration</h3>
+          <p class="step-desc">Start wherever you are. 20 seconds, 60 seconds, it doesn't matter. What matters is that you start. The app remembers your last session and picks up from there.</p>
+        </div>
+        <div class="step fade-up">
+          <div class="step-num" data-n="02">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+          <h3 class="step-title">Hold and breathe</h3>
+          <p class="step-desc">The timer counts, gentle messages guide your form and focus. When it ends, confirm you did the work. No shortcuts, no inflated numbers.</p>
+        </div>
+        <div class="step fade-up">
+          <div class="step-num" data-n="03">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+          <h3 class="step-title">Watch yourself grow</h3>
+          <p class="step-desc">Your streak, records, and charts update instantly. Progress compound over weeks and months. Longevity is the game.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE ──────────────────────────────── -->
+  <section class="quote-section">
+    <div class="wrap wrap--narrow">
+      <blockquote>
+        <p class="quote-text display-italic">
+          "Consistency is the rarest and most powerful tool in fitness. Everything else is decoration."
+        </p>
+        <cite class="quote-attr">Coreo Philosophy</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- CTA ────────────────────────────────── -->
+  <section class="cta-section">
+    <div class="wrap">
+      <p class="section-kicker" style="color:var(--amber); text-align:center">Be the first to know</p>
+      <h2 class="cta-headline display">Ready to build something that lasts?</h2>
+      <p class="cta-sub">Coreo is coming to the App Store soon. Leave your email and we'll let you know the moment it's live.</p>
+      <form class="cta-form" onsubmit="handleNotify(event)">
+        <input type="email" placeholder="your@email.com" required id="email-cta" />
+        <button type="submit" class="btn-cta">Notify me</button>
+      </form>
+      <p class="cta-note">No spam. One email. That's it.</p>
+      <div class="store-badges">
+        <div class="store-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          App Store
+        </div>
+      </div>
+      <p style="text-align:center; margin-top:4px;"><span class="coming-soon-tag">Coming Q2 2026</span></p>
+    </div>
+  </section>
+
+  <!-- FOOTER ─────────────────────────────── -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-logo">
+            <svg width="28" height="28" viewBox="0 0 64 64" fill="none">
+              <polygon points="32,4 58,18 58,46 32,60 6,46 6,18" fill="rgba(255,255,255,0.15)"/>
+              <circle cx="32" cy="32" r="10" fill="#E8913A"/>
+            </svg>
+            <span class="footer-wordmark">Coreo</span>
+          </div>
+          <p class="footer-tagline" style="margin-top:6px; padding-left:38px;">Strength from the inside out</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+          <a href="mailto:hello@coreoapp.com">Contact</a>
+        </div>
+
+        <p class="footer-copy">© 2026 Coreo. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- TOAST ──────────────────────────────── -->
+  <div class="toast" id="toast">🎉 You're on the list! We'll be in touch.</div>
+
+  <script>
+    // ── Notify form handler ─────────────────────────
+    function handleNotify(e) {
+      e.preventDefault();
+      const email = e.target.querySelector('input[type="email"]').value;
+      // In production: POST email to your backend or Mailchimp/ConvertKit
+      console.log('Notify signup:', email);
+      e.target.reset();
+      showToast();
+    }
+
+    function showToast() {
+      const t = document.getElementById('toast');
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 3500);
+    }
+
+    // ── Scroll-based fade-in ────────────────────────
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
