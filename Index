@@ -629,7 +629,7 @@
 
   <script>
     function handleNotify(e) {
-      const isPlaceholder = e.target.action.includes('https://formspree.io/f/xkovlbyy');
+      const isPlaceholder = e.target.action.includes('YOUR_FORM_ID');
       if (isPlaceholder) {
         // Formspree not yet configured — show toast locally for preview
         e.preventDefault();
