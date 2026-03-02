@@ -411,7 +411,7 @@
             Coreo is a plank training app for adults who want to stay strong, mobile, and pain-free for decades. No before-and-afters. No guilt. Just honest, consistent progress.
           </p>
           <!-- Replace YOUR_FORM_ID with your Formspree form ID -->
-          <form class="notify-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" onsubmit="handleNotify(event)">
+          <form class="notify-form" action="https://formspree.io/f/xkovlbyy" method="POST" onsubmit="handleNotify(event)">
             <input type="email" name="email" placeholder="your@email.com" required aria-label="Your email address" />
             <button type="submit" class="btn-primary">Notify me at launch</button>
           </form>
@@ -580,7 +580,7 @@
       <h2 class="cta-headline">Ready to build something that lasts?</h2>
       <p class="cta-sub">Coreo is coming to the App Store soon. Leave your email and we'll let you know the moment it's live.</p>
       <!-- Replace YOUR_FORM_ID with your Formspree form ID -->
-      <form class="cta-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" onsubmit="handleNotify(event)">
+      <form class="cta-form" action="https://formspree.io/f/xkovlbyy" method="POST" onsubmit="handleNotify(event)">
         <input type="email" name="email" placeholder="your@email.com" required aria-label="Your email address" />
         <button type="submit" class="btn-cta">Notify me</button>
       </form>
@@ -629,7 +629,7 @@
 
   <script>
     function handleNotify(e) {
-      const isPlaceholder = e.target.action.includes('YOUR_FORM_ID');
+      const isPlaceholder = e.target.action.includes('https://formspree.io/f/xkovlbyy');
       if (isPlaceholder) {
         // Formspree not yet configured — show toast locally for preview
         e.preventDefault();
